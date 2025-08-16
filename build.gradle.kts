@@ -16,7 +16,7 @@ version = providers.gradleProperty("pluginVersion").get()
 
 // Set the JVM language level used to build the project.
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 // Configure project's dependencies
@@ -42,7 +42,9 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.opentest4j)
 
-    implementation(providers.gradleProperty("kondoVersion"))
+    implementation(providers.gradleProperty("kondoVersion")) {
+        exclude("org.clojure", "clojure")
+    }
 
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
     intellijPlatform {
