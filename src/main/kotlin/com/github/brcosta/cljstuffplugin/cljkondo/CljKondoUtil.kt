@@ -33,6 +33,7 @@ fun initKondo(): CompletableFuture<Boolean> {
 
 
 private fun loadKondoDependencies() {
+    PluginId.getId("com.github.brcosta.clojure")
     val pluginDescriptor =
         PluginManager.getInstance().findEnabledPlugin(PluginId.getId("com.github.brcosta.cljstuffplugin"))
     val libsPath = "${pluginDescriptor?.pluginPath}${File.separatorChar}lib"
